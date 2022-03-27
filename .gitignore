@@ -1,0 +1,5 @@
+build/
+html/*.wasm
+html/*.js
+.vscode
+.idea
