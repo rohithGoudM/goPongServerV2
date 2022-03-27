@@ -1,7 +1,7 @@
 package pong
 
 import (
-	"github.com/hajimehoshi/ebiten"
+	// "github.com/hajimehoshi/ebiten"
 	"image/color"
 )
 
@@ -12,17 +12,16 @@ type Ball struct {
 	XVelocity float32
 	YVelocity float32
 	Color     color.Color
-	Img       *ebiten.Image
 }
 
 const (
 	InitBallRadius = 10.0
 )
 
-func setBallPixels(c color.Color, ballImg *ebiten.Image) {
-	// TODO: set pixels for round effect
-	ballImg.Fill(c)
-}
+// func setBallPixels(c color.Color, ballImg *ebiten.Image) {
+// 	// TODO: set pixels for round effect
+// 	ballImg.Fill(c)
+// }
 
 func (b *Ball) Update(leftPaddle *Paddle, rightPaddle *Paddle, windowHeight int) {
 	h := windowHeight

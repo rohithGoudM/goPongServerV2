@@ -1,7 +1,7 @@
 package pong
 
 import (
-	"github.com/hajimehoshi/ebiten"
+	// "github.com/hajimehoshi/ebiten"
 	// "github.com/hajimehoshi/ebiten/inpututil"
 	// "github.com/hajimehoshi/ebiten/text"
 	// "golang.org/x/image/font"
@@ -19,7 +19,6 @@ type Paddle struct {
 	Color        color.Color
 	Up           *KeyPressType
 	Down         *KeyPressType
-	Img          *ebiten.Image
 	pressed      keysPressed
 	scorePrinted scorePrinted
 }

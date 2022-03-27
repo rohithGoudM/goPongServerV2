@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/hajimehoshi/ebiten"
+	// "github.com/hajimehoshi/ebiten"
 	// "github.com/hajimehoshi/ebiten/ebitenutil"
-	"github.com/hajimehoshi/ebiten/inpututil"
+	// "github.com/hajimehoshi/ebiten/inpututil"
 	"github.com/jtestard/go-pong/pong"
 	"time"
 	"log"
@@ -95,11 +95,6 @@ func (g *Game) init() {
 		YVelocity: initBallVelocity,
 	}
 	g.level = 0
-	g.Ball.Img, _ = ebiten.NewImage(int(g.Ball.Radius*2), int(g.Ball.Radius*2), ebiten.FilterDefault)
-	g.Player1.Img, _ = ebiten.NewImage(g.Player1.Width, g.Player1.Height, ebiten.FilterDefault)
-	g.Player2.Img, _ = ebiten.NewImage(g.Player2.Width, g.Player2.Height, ebiten.FilterDefault)
-
-	pong.InitFonts()
 }
 
 func (g *Game) Reset(State pong.GameState) {
@@ -127,16 +122,11 @@ func (g *Game) Reset(State pong.GameState) {
 }
 
 // Update updates the game State
-// func (g *Game) Update(screen *ebiten.Image) error {
 func (g *Game) Update() error {
-	// fmt.Println(g.State)
 	switch g.State {
 	case pong.StartState:
 		if SpaceBar*g.SpaceBar < 0 {
 			g.SpaceBar = SpaceBar
-			g.State = pong.PlayState
-		}
-		if inpututil.IsKeyJustPressed(ebiten.KeySpace) {
 			g.State = pong.PlayState
 		}
 
@@ -186,30 +176,10 @@ func (g *Game) Update() error {
 			g.Reset(pong.StartState)
 
 		}
-		// if inpututil.IsKeyJustPressed(ebiten.KeySpace) {
-		// 	g.Reset(pong.StartState)
-		// }
 	}
-
-	// g.Draw(screen)
 
 	return nil
 }
-
-// Draw updates the game screen elements drawn
-// func (g *Game) Draw(screen *ebiten.Image) error {
-// 	screen.Fill(pong.BgColor)
-
-// 	pong.DrawCaption(g.State, pong.ObjColor, screen)
-// 	pong.DrawBigText(g.State, pong.ObjColor, screen)
-// 	g.Player1.Draw(screen, pong.ArcadeFont)
-// 	g.Player2.Draw(screen, pong.ArcadeFont)
-// 	g.Ball.Draw(screen)
-
-// 	ebitenutil.DebugPrint(screen, fmt.Sprintf("TPS: %0.2f", ebiten.CurrentTPS()))
-
-// 	return nil
-// }
 
 // Layout sets the screen layout
 func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
